@@ -55,8 +55,9 @@ VOID CALLBACK ServiceStatusChangedNotifier::NotifyCallbackFunc(
         // flags were provided. In this case, the callback cannot rely on notify
         // to determine what changed. Instead, the application is responsible
         // for verifying the current state of the service to identify what has
-        // changed. The callback is required to be noexcept, but can still
-        // throw. This catch is the final backstop against process termination.
+        // changed.
+        // The callback is required to be noexcept, but can still throw. This
+        // catch is the final backstop against process termination.
         try {
           // Callback function provided by the user
           context->action_function(notify_buffer->pszServiceNames, notify);
